@@ -24,11 +24,11 @@ provider:
   name: aws
   runtime: go1.x
   lambdaHashingVersion: 20201221
+  region: ap-northeast-1
 
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
- region: ap-northeast-1
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -57,17 +57,17 @@ package:
     - ./bin/**
 
 functions:
-  hello:
-    handler: bin/hello
+  check:
+    handler: bin/check
     events:
       - httpApi:
-          path: /hello
+          path: /check
           method: get
-  world:
-    handler: bin/world
+  record:
+    handler: bin/record
     events:
       - httpApi:
-          path: /world
+          path: /record
           method: get
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
