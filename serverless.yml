@@ -66,9 +66,8 @@ functions:
   record:
     handler: bin/record
     events:
-      - httpApi:
-          path: /record
-          method: get
+      - schedule: rate(1 minute)
+      # - schedule: rate(2 hours)
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
