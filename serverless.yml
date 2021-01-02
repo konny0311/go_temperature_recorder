@@ -25,7 +25,7 @@ provider:
   runtime: go1.x
   lambdaHashingVersion: 20201221
   region: ap-northeast-1
-
+  role: arn:aws:iam::198624044235:role/lambda-basic-role
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
@@ -66,8 +66,9 @@ functions:
   record:
     handler: bin/record
     events:
-      - schedule: rate(1 minute)
-      # - schedule: rate(2 hours)
+      - schedule: rate(4 hours)
+    environment: ${file(env.yml)}
+
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
